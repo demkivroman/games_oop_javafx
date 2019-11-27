@@ -34,13 +34,8 @@ public class BishopBlack implements Figure {
         int deltaY = ( source.y - dest.y < 0 ) ? 1 : -1;
         Cell temp = source;
         for (int index = 0; index < size; index++) {
-            for (Cell cell : Cell.values()) {
-                if (cell.x == temp.x + deltaX && cell.y == temp.y + deltaY) {
-                    steps[index] = cell;
-                    temp = cell;
-                    break;
-                }
-            }
+            temp = Cell.findBy(deltaX, deltaY, temp);
+            steps[index] = temp;
         }
 
        return steps;

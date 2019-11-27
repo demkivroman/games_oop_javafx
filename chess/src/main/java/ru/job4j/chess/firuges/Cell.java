@@ -17,4 +17,15 @@ public enum Cell {
         this.x = x;
         this.y = y;
     }
+
+    public static Cell findBy(int deltaX, int deltaY, Cell c) {
+        Cell temp = c;
+        for (Cell cell : Cell.values()) {
+            if (cell.x == temp.x + deltaX && cell.y == temp.y + deltaY) {
+                temp = cell;
+                break;
+            }
+        }
+        return temp;
+    }
 }
